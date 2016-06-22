@@ -10,12 +10,10 @@ consumer_key = 'N3Gq9TG2CpLjF1rdWGjbHQXxU'
 consumer_secret = 'cHhh9XYiKK4CtCmAqG1djrzvYcHZzQ6FYFL7GPtLiwbfSbJytA'
 
 
-class StdOutListener(StreamListener,filename):
+class StdOutListener(StreamListener):
 
-    def on_data(self, data,filename):
+    def on_data(self, data):
         print(data)
-        with open(filename,'a') as f:
-            f.write(data)
         return True
 
     def on_error(self, status):
