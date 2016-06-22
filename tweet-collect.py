@@ -12,7 +12,7 @@ consumer_secret = 'cHhh9XYiKK4CtCmAqG1djrzvYcHZzQ6FYFL7GPtLiwbfSbJytA'
 
 class StdOutListener(StreamListener,filename):
 
-    def on_data(self, data):
+    def on_data(self, data,filename):
         print(data)
         with open(filename,'a') as f:
             f.write(data)
