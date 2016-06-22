@@ -10,10 +10,12 @@ consumer_key = 'N3Gq9TG2CpLjF1rdWGjbHQXxU'
 consumer_secret = 'cHhh9XYiKK4CtCmAqG1djrzvYcHZzQ6FYFL7GPtLiwbfSbJytA'
 
 
-class StdOutListener(StreamListener):
+class StdOutListener(StreamListener,filename):
 
     def on_data(self, data):
         print(data)
+        with open(filename,'a') as f:
+            f.write(data)
         return True
 
     def on_error(self, status):
@@ -24,7 +26,7 @@ class StdOutListener(StreamListener):
 if __name__ == '__main__':
 
     #This handles Twitter authetification and the connection to Twitter Streaming API
-    l = StdOutListener()
+    l = StdOutListener(###Passs File Name Here eg "tweet.py")
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, l)
