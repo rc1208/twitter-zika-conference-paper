@@ -27,7 +27,10 @@ for attr in tweets_data[0]:
 tweets['expanded_url'] = map(lambda tweet: tweet['entities']['urls']['expanded_url'],tweets_data)
 tweets['hashtags'] = map(lambda tweet: tweet['entities']['hashtags']['text'],tweets_data)
 #mapping for user
-
+tweets[
+count_url = tweets['hashtags'].value_counts()
+print(tweets['hashtags'])
+print(len(tweets_data))
 
 
 
