@@ -25,4 +25,6 @@ infect
 infection
 death
 casualty
+kill
+kills
 
