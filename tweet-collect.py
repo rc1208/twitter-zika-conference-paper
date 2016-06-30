@@ -13,7 +13,7 @@ consumer_secret = 'cHhh9XYiKK4CtCmAqG1djrzvYcHZzQ6FYFL7GPtLiwbfSbJytA'
 class StdOutListener(StreamListener):
 
     def on_data(self, data):
-        with open("tweet.txt",'a') as f:
+        with open("tweet-cure.txt",'a') as f:
             f.write(data)
         print(data)
         return True
@@ -31,7 +31,8 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, l)
 
-    #This line filter Twitter Streams to capture data by the keywords: 'zika', 'zikavirus', 'Aedes'
-    stream.filter(track=['zika', 'zikavirus', 'Aedes'])
 
+    #This line filter Twitter Streams to capture data by the keywords: 'zika', 'zikavirus'
+    stream.filter(languages = ["en"],track=['zika cure','zika vaccine','zika eradicate','zika antibody','zika antibodies','zika eradication','zika neutralize'])
+	   
 
