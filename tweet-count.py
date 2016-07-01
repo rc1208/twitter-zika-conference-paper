@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 from collections import Counter
-tweets_data_path = 'tweet-cure.txt'
+tweets_data_path = 'tweet-infected-and-death.txt'
 
 tweets_data = []
 tweets_file = open(tweets_data_path, "r")
@@ -44,8 +44,11 @@ tweets['retweet_count'] = list(map(lambda tweet: tweet['retweet_count'],tweets_d
 tweets['favorite_count'] = list(map(lambda tweet: tweet['favorite_count'],tweets_data))
 #retweet_count
 tweets['retweet_count'] = list(map(lambda tweet: tweet['retweet_count'],tweets_data))
-
+#label column
+tweets['label'] = 'infected'
+for t in tweets['label']:
+	print(t)
 #converting to csv file
-tweets.to_csv('tweets.csv')
+tweets.to_csv('tweets-infected.csv')
 
 
