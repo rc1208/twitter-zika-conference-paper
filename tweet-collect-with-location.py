@@ -15,9 +15,10 @@ class StdOutListener(StreamListener):
 
     def on_data(self, data):
         with open("tweet-with-location.txt",'a') as f:
+            print(data)
+            #----> below is wrong way of searching data is a dictionary object please correct it 
             if 'zika' in data.lower():
                 f.write(data)
-                print(data)
         return True
 
     def on_error(self, status):
