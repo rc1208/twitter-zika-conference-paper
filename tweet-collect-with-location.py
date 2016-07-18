@@ -1,3 +1,4 @@
+
 #Import the necessary methods from tweepy library
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
@@ -14,9 +15,9 @@ class StdOutListener(StreamListener):
 
     def on_data(self, data):
         with open("tweet-with-location.txt",'a') as f:
-		if 'zika' in status.text.lower():
-			f.write(data)
-	print(data)
+            if 'zika' in data.lower():
+                f.write(data)
+                print(data)
         return True
 
     def on_error(self, status):
@@ -31,6 +32,7 @@ if __name__ == '__main__':
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, l)
+
 
 
     #This line filter Twitter Streams to capture data by the keywords: 'zika', 'zikavirus'
